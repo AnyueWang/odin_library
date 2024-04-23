@@ -1,0 +1,48 @@
+HTML,
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-modal {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 10px;
+    justify-items: end;
+}
+
+.p-new-read {
+    margin: 0;
+}
+
+.container-books {
+    margin-top: 50px;
+    width: 70vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+card {
+    background-color: antiquewhite;
+    border-radius: 20px;
+}
