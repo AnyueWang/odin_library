@@ -11,7 +11,7 @@
     <h1>Library</h1>
     <button class="btn-new">+ NEW BOOK</button>
     <dialog class="dialog-new">
-        <form>
+        <form id="new-input">
             <div class="container-modal">
                 <div>
                     <label for="new-author">Author:</label>
@@ -30,10 +30,11 @@
 
                 <div>
                     <p class="p-new-read">Have you read it?
-                    <input type="radio" id="new-read-yes" name="newRead" value="true" checked>
-                    <label for="new-read-yes">Yes</label>
-                    <input type="radio" id="new-read-no" name="newRead" value="false">
-                    <label for="new-read-no">No</label></p>
+                        <input type="radio" id="new-read-yes" name="newRead" value="true" checked>
+                        <label for="new-read-yes">Yes</label>
+                        <input type="radio" id="new-read-no" name="newRead" value="">
+                        <label for="new-read-no">No</label>
+                    </p>
                 </div>
 
                 <div>
@@ -45,7 +46,7 @@
     </dialog>
 
     <div class="container-books">
-        
+
     </div>
 
     <script src="./index.js"></script>
