@@ -13,15 +13,16 @@ const infoTags = {
     read: "Have you read it?"
 };
 
-function Book(author, title, pages, read) {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
-}
-
-Book.prototype.toggleRead = function () {
-    this.read = !this.read;
+class Book {
+    constructor(author, title, pages, read) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+    }
+    toggleRead() {
+        this.read = !this.read;
+    }
 }
 
 myLibrary.push(new Book("Patrick Rothfuss", "The Name of the Wind", 793, false));
@@ -62,7 +63,7 @@ function showBookCard(book) {
     for (let key in book) {
         if (book.hasOwnProperty(key)) {
             const newContent = document.createElement("li");
-            const keyFormatted = infoTags[key] ;
+            const keyFormatted = infoTags[key];
             const value = key === "read" ? (book[key] === true ? "Yes" : "No") : book[key];
             newContent.textContent = `${keyFormatted} ${value}`;
             newList.appendChild(newContent);
