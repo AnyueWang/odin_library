@@ -51,10 +51,22 @@ btnConfirm.addEventListener("click", (e) => {
     const formData = new FormData(newInput);
     const data = Object.fromEntries(formData);
     const newBook = new Book(data.newAuthor, data.newTitle, data.newPages, Boolean(data.newRead));
-    addBookToLibrary(newBook);
-    showBookCard(newBook);
 
-    dialog.close();
+    const newName = document.getElementById('new-author')
+    const newPages = document.getElementById('new-pages')
+    const newTitle = document.getElementById('new-title')
+
+    const isValid = newName.validity.valid && newPages.validity.valid && newTitle.validity.valid
+    if (isValid) {
+        addBookToLibrary(newBook);
+        showBookCard(newBook);
+
+        dialog.close();
+    } else {
+        showError(newName, newPages, newTitle)
+    }
+
+
 });
 
 function showBookCard(book) {
@@ -98,3 +110,15 @@ function showIsRead(book) {
     return book.read ? "Not Read" : "Read";
 }
 
+function showError(name, pages, title) {
+    const error = document.querySelector('.error span')
+    if (name.validity.valueMissing) {
+        error.textContent = '* The author of the book should not be empty.'
+    } else if (pages.validity.valueMissing) {
+        error.textContent = "* Book's pages should not be empty."
+    } else if (pages.validity.rangeUnderflow) {
+        error.textContent = "* Book's pages is too small."
+    } else if (title.validity.valueMissing) {
+        error.textContent = "* Book's title should not be empty."
+    }
+}

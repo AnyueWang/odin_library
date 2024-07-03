@@ -15,7 +15,7 @@ body {
 .container-modal {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr) 20px 1fr;
     row-gap: 10px;
     justify-items: end;
 }
@@ -55,4 +55,18 @@ button {
     border-radius: 10px;
     cursor: pointer;
     margin: 10px;
+}
+
+input:invalid {
+    border-color: #900;
+    background-color: #fdd;
+}
+
+.error span {
+    font-size: 12px;
+    color: red;
+}
+
+.error {
+    justify-self: start;
 }
